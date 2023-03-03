@@ -1,0 +1,34 @@
+package chapter3.B_VariableMethod;
+
+import javax.imageio.plugins.tiff.TIFFDirectory;
+
+class Triangle {
+	double underside;
+	double height;
+	double diagonal;
+	
+	double area;
+	double circumferencel;
+}
+
+class TriangleMath {
+	
+	static void setArea(Triangle triangle) {
+		double area = 0.5 * triangle.underside * triangle.height;
+		triangle.area = area;
+	}
+	
+}
+
+public class Method2 {
+
+	public static void main(String[] args) {
+		Triangle triangle1 = new Triangle();
+		triangle1.underside = 3;
+		triangle1.height = 4;
+		triangle1.diagonal = 5;
+		
+        TriangleMath.setArea(triangle1);
+	}
+
+}

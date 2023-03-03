@@ -1,0 +1,9 @@
+package chapter3.E_VariableMethod;
+
+public class Method1 {
+
+	public static void main(String[] args) {
+		
+	}
+
+}
