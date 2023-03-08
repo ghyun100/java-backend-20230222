@@ -14,7 +14,7 @@ class Circle {
 	double circumference;
 	double area;
 	
-	// 생성자 사용 방법
+	// 생성자 사용 방법 //(생성자도 메서드 중 하나인데 초기화 해주는 메서드)
 	// 클래스명([파라미터[, ...]]) { 인스턴스 생성시 실행할 코드 }
 	Circle(double radius) {
 		System.out.println("Circle이 생성됩니다.");
@@ -23,7 +23,7 @@ class Circle {
 		this.diameter = 2 * radius;
 		this.circumference = 3.14 * 2 * radius;
 		this.area = 3.14 * radius * radius;
-		
+		// 이게 초기화
 	}
 	
 	// 생성자도 메서드이기 때문에 오버로딩을 적용해서
