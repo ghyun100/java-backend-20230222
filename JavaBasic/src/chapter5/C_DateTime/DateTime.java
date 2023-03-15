@@ -1,10 +1,13 @@
 package chapter5.C_DateTime;
 
 import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.Month;
+import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
@@ -33,7 +36,9 @@ public class DateTime {
 		System.out.println(date);
 		
 		System.out.println(date.getMonth()); // 1월이 0, 2월이 1, 3월이 2, ...
-		                                     // getMonth에 줄이그인 이유는 옛날거라 가능한 사용하지 말라고 그여있음
+		                                     // getMonth에 줄이그인 이유는 옛날거라 
+		                                     // 가능한 사용하지 말라고 그여있음  
+		                                     // 컨트롤 마우스 들어가면 @Deprecated 가 있다.
 		
 		date.setHours(date.getHours() + 2);
 		System.out.println(date);
@@ -76,6 +81,35 @@ public class DateTime {
 		System.out.println(localDateTime);
 		LocalDateTime localDateTimeOf = LocalDateTime.of(localDateOf, localTimeOf);
 		System.out.println(localDateTimeOf);
+		
+		// 특정 날짜 또는 시간 가져오기
+		// .getXXX();
+		int year = localDateTime.getYear();
+		
+		int month = localDateTime.getMonthValue();
+		Month enumMonth = localDateTime.getMonth();
+		
+		int dayOfYear = localDateTime.getDayOfYear(); // 이번년도 며칠지났는지
+		int dayOfMonth = localDateTime.getDayOfMonth(); // 이번달 며칠인지
+		DayOfWeek dayOfWeek = localDateTime.getDayOfWeek(); // 영어로 요일
+		
+		boolean isLeapYear = localDate.isLeapYear(); // 윤달인지 아닌지
+		
+		int hour = localDateTime.getHour();
+		int minute = localDateTime.getMinute();
+		int second = localDateTime.getSecond();
+		int nano = localDateTime.getNano();
+		
+		// 특정 날짜 및 시간 변경 (직접 변경, 더하기, 빼기)
+		// 직접 변경 : withXXX(int 타입 데이터);
+		// 더하기 - 빼기 : plusXXX(long 타입 데이터), minusXXX(long 타입 데이터):
+		localDateTime.withYear(2012).plusWeeks(4).minusHours(9);
+		localDateTime.withDayOfYear(1).plusMinutes(50).minusNanos(50000);
+
+		Instant instant = localDateTime.atZone(ZoneId.systemDefault()).toInstant();
+		// 어떤 지역인지 지정하고 인스턴트로 바꿈
+		Date datetime = Date.from(instant); // 로컬데이터나 타임을 이렇게 바꿔줄 수 있음
+		System.out.println(datetime);
 		
 		
 	}

@@ -84,6 +84,7 @@ public class ApiClass {
 		int randomNumber = random.nextInt(3);
 		System.out.println(randomNumber);
 		
+		// 로또 응용 CollectionClass
 		int[] lotto = new int[6];
 		
 		for (int index = 0; index < lotto.length; index++) {
